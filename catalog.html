@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse Skills – SkillSwap</title>
+  <meta name="description" content="Find specialists to swap skills with: filter by category, level, availability and rating.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-catalog">
+
+  <!--HEADER-->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="SkillSwap">
+        <span class="logo__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+        </span>
+        <span class="logo__text">Skill<span>Swap</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html" class="nav__link">How it Works</a>
+        <a href="catalog.html" class="nav__link nav__link--active" aria-current="page">Browse Skills</a>
+        <a href="aboutus.html" class="nav__link">About Us</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="badge badge--green badge--credits">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          12 TimeCredits
+        </span>
+        <a href="profile.html" class="header__avatar" aria-label="My profile">
+          <img src="images/arthur.jpg" alt="Arthur D.">
+        </a>
+        <a href="#" class="btn btn--primary btn--sm">Find a Match</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!--SEARCH BAR-->
+    <section class="catalog-bar">
+      <div class="container">
+        <form class="catalog-bar__form" id="catalogSearchForm" role="search">
+          <div class="csearch">
+            <label class="csearch__field">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="catalogLearn" placeholder="Want to learn... (e.g. Figma)" aria-label="What do you want to learn?">
+            </label>
+            <label class="csearch__field csearch__field--divided">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              <input type="text" id="catalogTeach" placeholder="Can teach... (e.g. Python)" aria-label="What can you teach?">
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary csearch__btn">Search</button>
+          <p class="catalog-bar__count" aria-live="polite">Found results: <strong id="resultsCount">24 specialists</strong></p>
+        </form>
+      </div>
+    </section>
+
+    <!--CATALOG-->
+    <section class="catalog">
+      <div class="container catalog__grid">
+
+        <!-- ---------- FILTERS ---------- -->
+        <aside class="filters" aria-label="Filters">
+          <form id="filtersForm">
+            <div class="filters__head">
+              <span class="eyebrow eyebrow--blue">Filters</span>
+              <button type="button" class="filters__reset" id="resetFilters">Reset All</button>
+            </div>
+
+            <fieldset class="filter">
+              <legend class="filter__title">Category</legend>
+              <label class="opt opt--row">
+                <input type="radio" name="category" value="development" checked>
+                <span class="opt__control opt__control--radio"></span>
+                Development
+              </label>
+              <label class="opt opt--row">
+                <input type="radio" name="category" value="design">
+                <span class="opt__control opt__control--radio"></span>
+                Design
+              </label>
+              <label class="opt opt--row">
+                <input type="radio" name="category" value="languages">
+                <span class="opt__control opt__control--radio"></span>
+                Languages
+              </label>
+              <label class="opt opt--row">
+                <input type="radio" name="category" value="business">
+                <span class="opt__control opt__control--radio"></span>
+                Business
+              </label>
+              <label class="opt opt--row">
+                <input type="radio" name="category" value="data">
+                <span class="opt__control opt__control--radio"></span>
+                Data Science
+              </label>
+            </fieldset>
+
+            <fieldset class="filter">
+              <legend class="filter__title">Level</legend>
+              <div class="levels">
+                <label class="level-opt"><input type="radio" name="level" value="any" checked><span>Any</span></label>
+                <label class="level-opt"><input type="radio" name="level" value="junior"><span>Junior</span></label>
+                <label class="level-opt"><input type="radio" name="level" value="middle"><span>Middle</span></label>
+                <label class="level-opt"><input type="radio" name="level" value="senior"><span>Senior</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter">
+              <legend class="filter__title">Availability</legend>
+              <label class="opt">
+                <input type="checkbox" name="availability" value="weekdays" checked>
+                <span class="opt__control opt__control--check"></span>
+                Weekdays
+              </label>
+              <label class="opt">
+                <input type="checkbox" name="availability" value="weekends">
+                <span class="opt__control opt__control--check"></span>
+                Weekends
+              </label>
+              <label class="opt">
+                <input type="checkbox" name="availability" value="evenings">
+                <span class="opt__control opt__control--check"></span>
+                Evenings only
+              </label>
+            </fieldset>
+
+            <fieldset class="filter filter--last">
+              <legend class="filter__title">Min. Rating</legend>
+              <label class="opt">
+                <input type="radio" name="rating" value="0" checked>
+                <span class="opt__control opt__control--radio"></span>
+                Any rating
+              </label>
+              <label class="opt">
+                <input type="radio" name="rating" value="4">
+                <span class="opt__control opt__control--radio"></span>
+                4.0+ <svg class="star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
+              </label>
+              <label class="opt">
+                <input type="radio" name="rating" value="4.5">
+                <span class="opt__control opt__control--radio"></span>
+                4.5+ <svg class="star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
+              </label>
+              <label class="opt">
+                <input type="radio" name="rating" value="5">
+                <span class="opt__control opt__control--radio"></span>
+                5.0 only <svg class="star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
+              </label>
+            </fieldset>
+          </form>
+        </aside>
+
+        <!--RESULTS-->
+        <div class="catalog__main">
+          <div class="toolbar">
+            <label class="toolbar__sort">
+              <span>Sort by:</span>
+              <select id="sortSelect" aria-label="Sort specialists">
+                <option value="rating-desc">Rating (high to low)</option>
+                <option value="rating-asc">Rating (low to high)</option>
+                <option value="swaps-desc">Most swaps</option>
+                <option value="name-asc">Name (A–Z)</option>
+              </select>
+            </label>
+
+            <div class="toolbar__quick" role="group" aria-label="Quick category">
+              <button type="button" class="quick" data-quick="design" aria-pressed="false" title="Design">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+              </button>
+              <button type="button" class="quick" data-quick="development" aria-pressed="false" title="Development">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="results" id="results">
+
+            <!-- Alex M. -->
+            <article class="spec" data-spec data-name="Alex M." data-category="development" data-level="middle" data-availability="weekdays evenings" data-rating="4.9" data-swaps="12" data-role="middle frontend developer" data-teaches="javascript,react,html/css" data-learns="figma,ui/ux basics">
+              <img class="spec__avatar" src="images/alex.jpg" alt="Alex M.">
+              <div class="spec__body">
+                <div class="spec__head">
+                  <h3>Alex M.</h3>
+                  <span class="badge badge--green badge--sm"><span class="dot"></span>Verified</span>
+                </div>
+                <p class="spec__role">Middle Frontend Developer</p>
+                <div class="spec__skills">
+                  <div>
+                    <span class="spec__label">Teaches:</span>
+                    <div class="tags"><span class="tag tag--blue">JavaScript</span><span class="tag tag--blue">React</span><span class="tag tag--blue">HTML/CSS</span></div>
+                  </div>
+                  <div>
+                    <span class="spec__label">Wants to learn:</span>
+                    <div class="tags"><span class="tag tag--green">Figma</span><span class="tag tag--green">UI/UX Basics</span></div>
+                  </div>
+                </div>
+                <ul class="spec__meta">
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Weekday evenings</li>
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>60 min sessions</li>
+                </ul>
+              </div>
+              <div class="spec__side">
+                <p class="spec__rating"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg><strong>4.9</strong><span>(12 Swaps)</span></p>
+                <div class="spec__actions">
+                  <a href="profile.html" class="btn btn--light btn--md">View Profile</a>
+                  <button type="button" class="btn btn--primary btn--md" data-propose>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+                    <span>Propose Swap</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sandy K. -->
+            <article class="spec" data-spec data-name="Sandy K." data-category="design" data-level="senior" data-availability="weekends" data-rating="5.0" data-swaps="8" data-role="ui/ux designer" data-teaches="figma,prototyping,design systems" data-learns="python,data analysis">
+              <img class="spec__avatar" src="images/arthur.jpg" alt="Sandy K.">
+              <div class="spec__body">
+                <div class="spec__head">
+                  <h3>Sandy K.</h3>
+                  <span class="badge badge--green badge--sm"><span class="dot"></span>Verified</span>
+                </div>
+                <p class="spec__role">UI/UX Designer</p>
+                <div class="spec__skills">
+                  <div>
+                    <span class="spec__label">Teaches:</span>
+                    <div class="tags"><span class="tag tag--blue">Figma</span><span class="tag tag--blue">Prototyping</span><span class="tag tag--blue">Design Systems</span></div>
+                  </div>
+                  <div>
+                    <span class="spec__label">Wants to learn:</span>
+                    <div class="tags"><span class="tag tag--green">Python</span><span class="tag tag--green">Data Analysis</span></div>
+                  </div>
+                </div>
+                <ul class="spec__meta">
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Weekends</li>
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>45 min sessions</li>
+                </ul>
+              </div>
+              <div class="spec__side">
+                <p class="spec__rating"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg><strong>5.0</strong><span>(8 Swaps)</span></p>
+                <div class="spec__actions">
+                  <a href="profile.html" class="btn btn--light btn--md">View Profile</a>
+                  <button type="button" class="btn btn--primary btn--md" data-propose>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+                    <span>Propose Swap</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Ivan P. -->
+            <article class="spec" data-spec data-name="Ivan P." data-category="data" data-level="senior" data-availability="weekdays weekends evenings" data-rating="4.7" data-swaps="21" data-role="python developer · data analyst" data-teaches="python,pandas,ml basics" data-learns="html5/css3,react">
+              <img class="spec__avatar" src="images/alex.jpg" alt="Ivan P.">
+              <div class="spec__body">
+                <div class="spec__head">
+                  <h3>Ivan P.</h3>
+                  <span class="badge badge--green badge--sm"><span class="dot"></span>Verified</span>
+                </div>
+                <p class="spec__role">Python Developer · Data Analyst</p>
+                <div class="spec__skills">
+                  <div>
+                    <span class="spec__label">Teaches:</span>
+                    <div class="tags"><span class="tag tag--blue">Python</span><span class="tag tag--blue">Pandas</span><span class="tag tag--blue">ML Basics</span></div>
+                  </div>
+                  <div>
+                    <span class="spec__label">Wants to learn:</span>
+                    <div class="tags"><span class="tag tag--green">HTML5/CSS3</span><span class="tag tag--green">React</span></div>
+                  </div>
+                </div>
+                <ul class="spec__meta">
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Flexible schedule</li>
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>75 min sessions</li>
+                </ul>
+              </div>
+              <div class="spec__side">
+                <p class="spec__rating"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg><strong>4.7</strong><span>(21 Swaps)</span></p>
+                <div class="spec__actions">
+                  <a href="profile.html" class="btn btn--light btn--md">View Profile</a>
+                  <button type="button" class="btn btn--primary btn--md" data-propose>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+                    <span>Propose Swap</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Maria K. -->
+            <article class="spec" data-spec data-name="Maria K." data-category="languages" data-level="senior" data-availability="weekends" data-rating="4.8" data-swaps="34" data-role="business english coach · ielts trainer" data-teaches="business english,ielts prep" data-learns="selenium,qa basics">
+              <img class="spec__avatar" src="images/maria.jpg" alt="Maria K.">
+              <div class="spec__body">
+                <div class="spec__head">
+                  <h3>Maria K.</h3>
+                  <span class="badge badge--orange badge--sm"><span class="dot"></span>Top Rated</span>
+                </div>
+                <p class="spec__role">Business English Coach · IELTS Trainer</p>
+                <div class="spec__skills">
+                  <div>
+                    <span class="spec__label">Teaches:</span>
+                    <div class="tags"><span class="tag tag--blue">Business English</span><span class="tag tag--blue">IELTS Prep</span></div>
+                  </div>
+                  <div>
+                    <span class="spec__label">Wants to learn:</span>
+                    <div class="tags"><span class="tag tag--green">Selenium</span><span class="tag tag--green">QA Basics</span></div>
+                  </div>
+                </div>
+                <ul class="spec__meta">
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Mornings &amp; weekends</li>
+                  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>45 min sessions</li>
+                </ul>
+              </div>
+              <div class="spec__side">
+                <p class="spec__rating"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg><strong>4.8</strong><span>(34 Swaps)</span></p>
+                <div class="spec__actions">
+                  <a href="profile.html" class="btn btn--light btn--md">View Profile</a>
+                  <button type="button" class="btn btn--primary btn--md" data-propose>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+                    <span>Propose Swap</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <p class="empty" id="resultsEmpty" hidden>No specialists match these filters. Try resetting them.</p>
+          </div>
+
+          <!--PAGINATION-->
+          <nav class="pagination" id="pagination" aria-label="Pagination">
+            <button type="button" class="page page--nav" data-page="prev" disabled>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+              Prev
+            </button>
+            <button type="button" class="page is-active" data-page="1" aria-current="page">1</button>
+            <button type="button" class="page" data-page="2">2</button>
+            <button type="button" class="page" data-page="3">3</button>
+            <span class="page__dots">...</span>
+            <button type="button" class="page" data-page="6">6</button>
+            <button type="button" class="page page--nav" data-page="next">
+              Next
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

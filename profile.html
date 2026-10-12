@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur D. – Profile | SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-profile">
+
+  <!--HEADER-->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="SkillSwap">
+        <span class="logo__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></svg>
+        </span>
+        <span class="logo__text">Skill<span>Swap</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html" class="nav__link">How it Works</a>
+        <a href="catalog.html" class="nav__link">Browse Skills</a>
+        <a href="aboutus.html" class="nav__link">About Us</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="badge badge--green badge--credits">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          12 TimeCredits
+        </span>
+        <a href="profile.html" class="header__avatar" aria-label="My profile">
+          <img src="images/arthur.jpg" alt="Arthur D.">
+        </a>
+        <a href="#" class="btn btn--primary btn--sm">Find a Match</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!--PROFILE HEAD-->
+    <section class="profile-head">
+      <div class="container profile-head__inner">
+        <div class="profile-head__user">
+          <img class="profile-head__avatar" src="images/arthur.jpg" alt="Arthur D.">
+          <div class="profile-head__info">
+            <div class="profile-head__name-row">
+              <h1 class="profile-head__name">Arthur D.</h1>
+              <span class="badge badge--green badge--sm"><span class="dot"></span>Verified</span>
+            </div>
+            <p class="profile-head__role">Student / QA Engineer Trainee</p>
+            <ul class="profile-meta">
+              <li>
+                <svg class="icon-star" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
+                <strong>4.95</strong> (15 Completed Swaps)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                12 Hours Invested
+              </li>
+              <li class="profile-meta__credits">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                12 TimeCredits
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-head__actions">
+          <button type="button" class="btn btn--light" id="editProfileBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4 9.4-9.4z"/></svg>
+            Edit Profile
+          </button>
+          <button type="button" class="btn btn--primary" id="shareProfileBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
+            Share Profile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--TABS-->
+    <div class="tabs-bar">
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Profile sections">
+          <button type="button" class="tab is-active" role="tab" id="tab-upcoming" aria-selected="true" aria-controls="panel-upcoming">Upcoming Swaps</button>
+          <button type="button" class="tab" role="tab" id="tab-skills" aria-selected="false" aria-controls="panel-skills" tabindex="-1">My Skills</button>
+          <button type="button" class="tab" role="tab" id="tab-history" aria-selected="false" aria-controls="panel-history" tabindex="-1">History</button>
+          <button type="button" class="tab" role="tab" id="tab-settings" aria-selected="false" aria-controls="panel-settings" tabindex="-1">Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!--PANEL: UPCOMING SWAPS-->
+    <section class="dashboard tab-panel" role="tabpanel" id="panel-upcoming" aria-labelledby="tab-upcoming">
+      <div class="container dashboard__grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="dashboard__left">
+          <span class="eyebrow eyebrow--blue">Upcoming Sessions</span>
+
+          <div class="sessions" id="sessions">
+            <article class="session" data-session>
+              <div class="session__top">
+                <div class="session__who">
+                  <span class="chip chip--date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Sept 28, 18:00
+                  </span>
+                  <img class="avatar avatar--sm" src="images/alex.jpg" alt="">
+                  <span class="session__with">With <strong>Alex M.</strong></span>
+                </div>
+                <span class="status status--confirmed" data-status><span class="dot"></span>Confirmed</span>
+              </div>
+              <h3 class="session__title">Code Review &amp; JS Refactoring</h3>
+              <p class="session__meta">Duration: 60 min · Platform: Video Call</p>
+              <div class="session__actions">
+                <a href="#" class="btn btn--primary btn--md">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg>
+                  Join Video Call
+                </a>
+                <button type="button" class="btn btn--light btn--md" data-action="reschedule">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  Reschedule
+                </button>
+                <button type="button" class="btn btn--danger btn--md" data-action="cancel">Cancel</button>
+              </div>
+            </article>
+
+            <article class="session" data-session>
+              <div class="session__top">
+                <div class="session__who">
+                  <span class="chip chip--date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Oct 3, 14:00
+                  </span>
+                  <img class="avatar avatar--sm" src="images/maria.jpg" alt="">
+                  <span class="session__with">With <strong>Maria K.</strong></span>
+                </div>
+                <span class="status status--pending" data-status><span class="dot"></span>Pending</span>
+              </div>
+              <h3 class="session__title">Advanced English Speaking Practice</h3>
+              <p class="session__meta">Duration: 45 min · Platform: Video Call</p>
+              <div class="session__actions">
+                <button type="button" class="btn btn--success btn--md" data-action="confirm">Confirm Session</button>
+                <button type="button" class="btn btn--light btn--md" data-action="message">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22l5.9-2z"/></svg>
+                  Message
+                </button>
+              </div>
+            </article>
+
+            <p class="empty" id="sessionsEmpty" hidden>No upcoming sessions. Find a match to book your next swap.</p>
+          </div>
+
+          <span class="eyebrow eyebrow--green activity-eyebrow">Recent Activity</span>
+          <div class="activity">
+            <article class="activity__item">
+              <div class="activity__head">
+                <span class="activity__icon activity__icon--green">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.8 10A10 10 0 1 1 17 3.3"/><path d="m9 11 3 3L22 4"/></svg>
+                </span>
+                <div>
+                  <h4>Swap Completed</h4>
+                  <span>2 days ago</span>
+                </div>
+              </div>
+              <p>HTML5/CSS3 session with Ivan P. · Earned 1 TimeCredit</p>
+            </article>
+
+            <article class="activity__item">
+              <div class="activity__head">
+                <span class="activity__icon activity__icon--blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg>
+                </span>
+                <div>
+                  <h4>New Review Received</h4>
+                  <span>5 days ago</span>
+                </div>
+              </div>
+              <p>"Great mentor, very clear explanations!" — Alex M. · <svg class="icon-star icon-star--fill" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2z"/></svg> 5.0</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="dashboard__right">
+
+          <div class="balance">
+            <div class="balance__top">
+              <h3>TimeCredits Balance</h3>
+              <button type="button" class="balance__add" id="addCreditsBtn">+ Add</button>
+            </div>
+            <div class="balance__value">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <strong id="balanceValue">12</strong>
+              <span>TimeCredits</span>
+            </div>
+            <div class="progress" role="progressbar" aria-label="TimeCredits balance" aria-valuemin="0" aria-valuemax="100" aria-valuenow="28">
+              <span class="progress__bar" style="width: 28%"></span>
+            </div>
+            <p class="balance__note">≈ 12 hours of learning available</p>
+          </div>
+
+          <div class="skills-head">
+            <span class="eyebrow eyebrow--blue">My Skills</span>
+            <button type="button" class="btn-add" id="addSkillBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              Add Skill
+            </button>
+          </div>
+
+          <div class="skills">
+            <div class="skills__card">
+              <div class="skills__title">
+                <span class="skills__icon skills__icon--green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+                </span>
+                <h4>I Can Teach</h4>
+              </div>
+              <ul class="skill-list skill-list--green">
+                <li><span class="skill-list__name">Python Automation Testing</span><span class="level level--green">Expert</span></li>
+                <li><span class="skill-list__name">HTML5 / CSS3 Layouts</span><span class="level level--green">Advanced</span></li>
+                <li><span class="skill-list__name">Git &amp; Version Control</span><span class="level level--green">Advanced</span></li>
+                <li><span class="skill-list__name">Selenium WebDriver</span><span class="level level--blue">Intermediate</span></li>
+              </ul>
+            </div>
+
+            <div class="skills__card">
+              <div class="skills__title">
+                <span class="skills__icon skills__icon--blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </span>
+                <h4>I Want to Learn</h4>
+              </div>
+              <ul class="skill-list skill-list--blue">
+                <li><span class="skill-list__name">Advanced English Speaking</span><span class="level level--orange">High Priority</span></li>
+                <li><span class="skill-list__name">React.js Fundamentals</span><span class="level level--orange">High Priority</span></li>
+                <li><span class="skill-list__name">UI/UX Design Basics</span><span class="level level--blue">Medium</span></li>
+                <li><span class="skill-list__name">Data Analysis with Python</span><span class="level level--blue">Medium</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="next-swap">
+            <span class="next-swap__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+            </span>
+            <div class="next-swap__text">
+              <h4>Ready for Your Next Swap?</h4>
+              <p>We found 3 new matches based on your skills!</p>
+            </div>
+            <a href="#" class="btn btn--primary btn--md">Browse Matches</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--PANEL: MY SKILLS-->
+    <section class="dashboard tab-panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" hidden>
+      <div class="container"><p class="empty">Your skills overview will appear here.</p></div>
+    </section>
+
+    <!--PANEL: HISTORY-->
+    <section class="dashboard tab-panel" role="tabpanel" id="panel-history" aria-labelledby="tab-history" hidden>
+      <div class="container"><p class="empty">Your completed swaps will appear here.</p></div>
+    </section>
+
+    <!--PANEL: SETTINGS-->
+    <section class="dashboard tab-panel" role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" hidden>
+      <div class="container"><p class="empty">Account settings will appear here.</p></div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
